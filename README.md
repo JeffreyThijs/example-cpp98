@@ -32,8 +32,6 @@ script:
  - ./get_code_cov.sh
  - codecov
 ```
-
-> All other CI you can simply run `bash <(curl -s https://codecov.io/bash)`.
 ### Produce Coverage Reports
 #### gvoc
 ```sh
