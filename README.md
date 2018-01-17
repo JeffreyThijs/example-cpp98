@@ -1,13 +1,10 @@
-# travis_qmake_gcc_cpp98_gcov
-
+# [Codecov][1] qmake_gcc_cpp98_gcov Example
 [![Travis CI logo](TravisCI.png)](https://travis-ci.org)
 ![Whitespace](Whitespace.png)
 [![Codecov logo](Codecov.png)](https://www.codecov.io)
 
 [![Build Status](https://travis-ci.org/richelbilderbeek/travis_qmake_gcc_cpp98_gcov.svg?branch=master)](https://travis-ci.org/richelbilderbeek/travis_qmake_gcc_cpp98_gcov)
 [![codecov.io](https://codecov.io/github/richelbilderbeek/travis_qmake_gcc_cpp98_gcov/coverage.svg?branch=master)](https://codecov.io/github/richelbilderbeek/travis_qmake_gcc_cpp98_gcov?branch=master)
-
-This GitHub is part of [the Travis C++ Tutorial](https://github.com/richelbilderbeek/travis_cpp_tutorial).
 
 The goal of this project is to have a clean Travis CI build, with specs:
  * C++ version: `C++98`
@@ -18,7 +15,49 @@ The goal of this project is to have a clean Travis CI build, with specs:
  * Source: multiple files
 
 Additionally, the code coverage should be measured by CodeCov.
+## Guide
+### Travis Setup
 
-More complex builds:
+Add to your `.travis.yml` file.
+```yml
+language: cpp
+compiler: gcc
+
+before_install: 
+ - sudo pip install codecov
+
+script: 
+ - ./build.sh
+ - ./travis_qmake_gcc_cpp98_gcov
+ - ./get_code_cov.sh
+ - codecov
+```
+
+> All other CI you can simply run `bash <(curl -s https://codecov.io/bash)`.
+### Produce Coverage Reports
+#### gvoc
+```sh
+#!/bin/bash
+for filename in `find . | egrep '\.cpp'`; 
+do 
+  gcov -n -o . $filename > /dev/null; 
+done
+```
+## Caveats
+### Private Repos
+Repository tokens are required for (a) all private repos, (b) public repos not using Travis-CI, CircleCI or AppVeyor. Find your repository token at Codecov and provide via codecov --token=:token or export CODECOV_TOKEN=":token"
+## More complex builds
  * C++11: [travis_qmake_gcc_cpp11_gcov](https://www.github.com/richelbilderbeek/travis_qmake_gcc_cpp11_gcov)
  * C++14: [travis_qmake_gcc_cpp14_gcov](https://www.github.com/richelbilderbeek/travis_qmake_gcc_cpp14_gcov)
+## Support
+
+### Contact
+- Intercom (in-app messanger)
+- Email: [support@codecov.io](mailto:support@codecov.io)
+- Slack: [slack.codecov.io](https://slack.codecov.io)
+- [gh/codecov/support](https://github.com/codecov/support)
+
+1. More documentation at https://docs.codecov.io
+2. Configure codecov through the `codecov.yml`  https://docs.codecov.io/docs/codecov-yaml
+
+[1]: https://codecov.io/
