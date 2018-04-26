@@ -47,15 +47,10 @@ Repository tokens are required for (a) all private repos, (b) public repos not u
 ## More complex builds
  * C++11: [travis_qmake_gcc_cpp11_gcov](https://www.github.com/richelbilderbeek/travis_qmake_gcc_cpp11_gcov)
  * C++14: [travis_qmake_gcc_cpp14_gcov](https://www.github.com/richelbilderbeek/travis_qmake_gcc_cpp14_gcov)
-## Support
-
-### Contact
-- Intercom (in-app messanger)
-- Email: [support@codecov.io](mailto:support@codecov.io)
-- Slack: [slack.codecov.io](https://slack.codecov.io)
-- [gh/codecov/support](https://github.com/codecov/support)
 
 1. More documentation at https://docs.codecov.io
 2. Configure codecov through the `codecov.yml`  https://docs.codecov.io/docs/codecov-yaml
+
+We are happy to help if you have any questions. Please contact email our Support at [support@codecov.io](mailto:support@codecov.io)
 
 [1]: https://codecov.io/
